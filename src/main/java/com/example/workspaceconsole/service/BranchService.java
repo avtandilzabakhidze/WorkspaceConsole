@@ -2,7 +2,7 @@ package com.example.workspaceconsole.service;
 
 import com.example.workspaceconsole.domain.Branch;
 import com.example.workspaceconsole.dto.BranchDTO;
-import com.example.workspaceconsole.repository.BookingRepository;
+import com.example.workspaceconsole.repository.BranchRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +14,11 @@ import java.util.stream.StreamSupport;
 
 @Service
 public class BranchService {
-    private final BookingRepository repository;
+    private final BranchRepository repository;
     private final ModelMapper modelMapper;
 
     @Autowired
-    public BranchService(BookingRepository repository, ModelMapper modelMapper) {
+    public BranchService(BranchRepository repository, ModelMapper modelMapper) {
         this.repository = repository;
         this.modelMapper = modelMapper;
     }
