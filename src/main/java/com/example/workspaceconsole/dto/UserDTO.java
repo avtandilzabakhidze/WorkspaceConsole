@@ -1,5 +1,5 @@
 package com.example.workspaceconsole.dto;
-import com.example.workspaceconsole.domain.Workspace;
+
 import lombok.Getter;
 import lombok.Setter;
 

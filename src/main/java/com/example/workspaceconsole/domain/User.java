@@ -1,5 +1,6 @@
 package com.example.workspaceconsole.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,6 +24,7 @@ public class User {
     private String email;
     private String phoneNumber;
     private String address;
-    @OneToMany
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
     private List<Workspace> workspaces;
 }

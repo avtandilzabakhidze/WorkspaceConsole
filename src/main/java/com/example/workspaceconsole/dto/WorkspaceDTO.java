@@ -4,8 +4,6 @@ import com.example.workspaceconsole.domain.TimeManagement;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
-
 @Getter
 @Setter
 public class WorkspaceDTO {
