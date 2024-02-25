@@ -36,7 +36,7 @@ public class UserService {
 
     public UserDTO updateUser(long id,UserDTO userDTO){
         if (!repository.existsById(id)) {
-            throw new EntityNotFoundException();
+            throw new EntityNotFoundException("User with id " + id + " not found");
         }
         userDTO.setId(id);
         User user = modelMapper.map(userDTO, User.class);
@@ -44,6 +44,9 @@ public class UserService {
     }
 
     public void deleteUserById(long id){
+        if (!repository.existsById(id)) {
+            throw new EntityNotFoundException("User with id " + id + " not found");
+        }
         repository.deleteById(id);
     }
 }

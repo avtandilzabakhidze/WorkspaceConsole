@@ -3,6 +3,7 @@ package com.example.workspaceconsole.service;
 import com.example.workspaceconsole.domain.Booking;
 import com.example.workspaceconsole.dto.BookingDTO;
 import com.example.workspaceconsole.repository.BookingRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,7 +34,11 @@ public class BookingService {
         return modelMapper.map(booking, BookingDTO.class);
     }
 
-    public void deleteBookingById(long id){
+    public void deleteBookingById(long id) {
+        if (!repository.existsById(id)) {
+            throw new EntityNotFoundException("Booking with id " + id + " not found");
+        }
         repository.deleteById(id);
+
     }
 }

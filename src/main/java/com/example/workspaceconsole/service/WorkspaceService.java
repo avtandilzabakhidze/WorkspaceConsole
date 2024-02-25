@@ -36,7 +36,7 @@ public class WorkspaceService {
 
     public WorkspaceDTO updateWorkspace(long id, WorkspaceDTO workspaceDTO) {
         if (!repository.existsById(id)) {
-            throw new EntityNotFoundException();
+            throw new EntityNotFoundException("Workspace with id " + id + " not found");
         }
         workspaceDTO.setId(id);
         Workspace workspace = repository.save(modelMapper.map(workspaceDTO, Workspace.class));

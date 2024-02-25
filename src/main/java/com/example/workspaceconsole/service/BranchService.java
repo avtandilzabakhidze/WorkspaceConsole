@@ -36,7 +36,7 @@ public class BranchService {
 
     public BranchDTO updateBranch(long id, BranchDTO branchDTO) {
         if (!repository.existsById(id)) {
-            throw new EntityNotFoundException();
+            throw new EntityNotFoundException("Branch with id " + id + " not found");
         }
         branchDTO.setId(id);
         Branch branch = modelMapper.map(branchDTO, Branch.class);
