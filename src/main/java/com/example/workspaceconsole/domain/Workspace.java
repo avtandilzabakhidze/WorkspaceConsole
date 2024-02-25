@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -22,6 +24,7 @@ public class Workspace {
     @Enumerated(value = EnumType.STRING)
     private TimeManagement timeManagement;
     private String description;
+    private int capacity;
     @ManyToOne
     private Branch branch;
 }

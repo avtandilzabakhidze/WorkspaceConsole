@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -21,4 +23,6 @@ public class User {
     private String email;
     private String phoneNumber;
     private String address;
+    @OneToMany
+    private List<Workspace> workspaces;
 }

@@ -15,5 +15,6 @@ public class WorkspaceDTO {
     private double price;
     private TimeManagement timeManagement;
     private String description;
+    private int capacity;
     private BranchDTO branch;
 }
