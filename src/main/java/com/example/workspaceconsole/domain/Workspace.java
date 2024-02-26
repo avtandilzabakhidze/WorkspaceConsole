@@ -33,6 +33,7 @@ public class Workspace {
 
     @Column(nullable = false)
     private int capacity;
+
     @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     private Branch branch;
