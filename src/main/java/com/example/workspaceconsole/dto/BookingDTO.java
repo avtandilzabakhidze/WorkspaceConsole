@@ -9,9 +9,9 @@ import java.time.LocalDateTime;
 @Setter
 public class BookingDTO {
     private long id;
-    private WorkspaceDTO workspace;
+    private long workspaceId;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
-    private UserDTO user;
+    private long userId;
     private String additionalRequirements;
 }

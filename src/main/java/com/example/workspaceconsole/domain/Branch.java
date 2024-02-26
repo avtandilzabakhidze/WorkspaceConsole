@@ -1,6 +1,6 @@
 package com.example.workspaceconsole.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,7 +21,8 @@ public class Branch {
     private long id;
     private String branchName;
     private String address;
-    @OneToMany(mappedBy = "branch")
-    @JsonIgnore
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "branch", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Workspace> workspaces;
 }

@@ -1,12 +1,11 @@
 package com.example.workspaceconsole.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.List;
 
 @Entity
 @Getter
@@ -25,6 +24,8 @@ public class Workspace {
     private TimeManagement timeManagement;
     private String description;
     private int capacity;
-    @ManyToOne
+
+    @JsonBackReference
+    @ManyToOne( fetch = FetchType.LAZY)
     private Branch branch;
 }

@@ -14,5 +14,5 @@ public class WorkspaceDTO {
     private TimeManagement timeManagement;
     private String description;
     private int capacity;
-    private BranchDTO branch;
+    private long branchId;
 }
