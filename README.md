@@ -4,11 +4,11 @@ The Workspace Booking Console Application is a Java Spring Boot application desi
 
 ## Features
 
-- **Booking Management: ** Users can easily book workspaces for specific time slots, complete with additional requirements.
-- **Branch Management: **  Add, update, and delete branches along with their respective details seamlessly.
+- **Booking Management:** Users can easily book workspaces for specific time slots, complete with additional requirements.
+- **Branch Management:**  Add, update, and delete branches along with their respective details seamlessly.
 - **Workspace Management:** Manage workspaces efficiently, including adding, updating, and deleting with information such as name, capacity, price, and availability.
 - **User Management:** Keep track of user information, including personal details and contact information, for smooth communication and engagement.
-- **Time Management: ** Flexible booking durations are supported, including options for hourly, daily, monthly, and yearly bookings.
+- **Time Management:** Flexible booking durations are supported, including options for hourly, daily, monthly, and yearly bookings.
 
 ## Technologies Used
 
