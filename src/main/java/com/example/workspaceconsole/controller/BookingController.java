@@ -5,6 +5,7 @@ import com.example.workspaceconsole.service.BookingService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,7 +36,7 @@ public class BookingController {
             @ApiResponse(responseCode = "400", description = "Invalid input"),
     })
     @PostMapping
-    public ResponseEntity<BookingDTO> saveBooking(@RequestBody BookingDTO bookingDTO) {
+    public ResponseEntity<BookingDTO> saveBooking(@Valid @RequestBody BookingDTO bookingDTO) {
         BookingDTO createdBooking = service.saveBooking(bookingDTO);
         return new ResponseEntity<>(createdBooking, HttpStatus.OK);
     }

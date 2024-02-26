@@ -5,6 +5,7 @@ import com.example.workspaceconsole.service.WorkspaceService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,7 +36,7 @@ public class WorkspaceController {
             @ApiResponse(responseCode = "400", description = "Invalid input"),
     })
     @PostMapping
-    public ResponseEntity<WorkspaceDTO> saveWorkspace(@RequestBody WorkspaceDTO workspaceDTO) {
+    public ResponseEntity<WorkspaceDTO> saveWorkspace(@Valid @RequestBody WorkspaceDTO workspaceDTO) {
         WorkspaceDTO savedWorkspace = service.saveWorkspace(workspaceDTO);
         return new ResponseEntity<>(savedWorkspace, HttpStatus.CREATED);
     }
@@ -47,7 +48,7 @@ public class WorkspaceController {
             @ApiResponse(responseCode = "404", description = "Workspace not found"),
     })
     @PutMapping("{id}")
-    public ResponseEntity<WorkspaceDTO> updateWorkspace(@PathVariable long id, @RequestBody WorkspaceDTO workspaceDTO) {
+    public ResponseEntity<WorkspaceDTO> updateWorkspace(@PathVariable long id,@Valid  @RequestBody WorkspaceDTO workspaceDTO) {
         WorkspaceDTO updatedWorkspace = service.updateWorkspace(id, workspaceDTO);
         return new ResponseEntity<>(updatedWorkspace, HttpStatus.OK);
     }

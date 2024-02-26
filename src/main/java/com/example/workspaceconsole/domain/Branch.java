@@ -19,7 +19,9 @@ public class Branch {
     @GeneratedValue(generator = "branch_id_gen", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name = "branch_id_gen", sequenceName = "branch_id_seq", allocationSize = 1)
     private long id;
+    @Column(nullable = false)
     private String branchName;
+    @Column(nullable = false)
     private String address;
 
     @JsonManagedReference

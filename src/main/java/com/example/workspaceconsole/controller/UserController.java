@@ -5,6 +5,7 @@ import com.example.workspaceconsole.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,7 +36,7 @@ public class UserController {
             @ApiResponse(responseCode = "400", description = "Invalid input"),
     })
     @PostMapping
-    public ResponseEntity<UserDTO> saveUser( @RequestBody UserDTO userDTO) {
+    public ResponseEntity<UserDTO> saveUser(@Valid @RequestBody UserDTO userDTO) {
         UserDTO savedUser = service.saveUser(userDTO);
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
     }
@@ -47,7 +48,7 @@ public class UserController {
             @ApiResponse(responseCode = "404", description = "User not found"),
     })
     @PutMapping("{id}")
-    public ResponseEntity<UserDTO> updateUser(@PathVariable long id, @RequestBody UserDTO userDTO) {
+    public ResponseEntity<UserDTO> updateUser(@PathVariable long id,@Valid  @RequestBody UserDTO userDTO) {
         UserDTO updatedUser = service.updateUser(id, userDTO);
         return new ResponseEntity<>(updatedUser, HttpStatus.OK);
     }

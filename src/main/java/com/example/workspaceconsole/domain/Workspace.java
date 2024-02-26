@@ -17,15 +17,23 @@ public class Workspace {
     @GeneratedValue(generator = "workspace_id_gen", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name = "workspace_id_gen", sequenceName = "workspace_id_seq", allocationSize = 1)
     private long id;
+    @Column(nullable = false)
     private String workspaceName;
+
+    @Column(nullable = false)
     private boolean isOccupied;
+
+    @Column(nullable = false)
     private double price;
-    @Enumerated(value = EnumType.STRING)
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private TimeManagement timeManagement;
     private String description;
-    private int capacity;
 
+    @Column(nullable = false)
+    private int capacity;
     @JsonBackReference
-    @ManyToOne( fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Branch branch;
 }

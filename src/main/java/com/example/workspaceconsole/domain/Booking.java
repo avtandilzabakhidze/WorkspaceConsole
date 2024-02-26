@@ -19,10 +19,14 @@ public class Booking {
     @SequenceGenerator(name = "booking_id_gen", sequenceName = "booking_id_seq", allocationSize = 1)
     private long id;
     @ManyToOne
+    @JoinColumn(nullable = false)
     private Workspace workspace;
+    @Column(nullable = false)
     private LocalDateTime startTime;
+    @Column(nullable = false)
     private LocalDateTime endTime;
     @ManyToOne
+    @JoinColumn(nullable = false)
     private User user;
     private String additionalRequirements;
 }

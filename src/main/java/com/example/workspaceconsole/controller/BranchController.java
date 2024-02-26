@@ -5,6 +5,7 @@ import com.example.workspaceconsole.service.BranchService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,7 +36,7 @@ public class BranchController {
             @ApiResponse(responseCode = "400", description = "Invalid input"),
     })
     @PostMapping
-    public ResponseEntity<BranchDTO> saveBranch(@RequestBody BranchDTO branchDTO) {
+    public ResponseEntity<BranchDTO> saveBranch(@Valid @RequestBody BranchDTO branchDTO) {
         BranchDTO savedBranch = service.saveBranch(branchDTO);
         return new ResponseEntity<>(savedBranch, HttpStatus.CREATED);
     }
@@ -47,7 +48,7 @@ public class BranchController {
             @ApiResponse(responseCode = "404", description = "Branch not found"),
     })
     @PutMapping("{id}")
-    public ResponseEntity<BranchDTO> updateBranch(@PathVariable long id, @RequestBody BranchDTO branchDTO) {
+    public ResponseEntity<BranchDTO> updateBranch(@PathVariable long id,@Valid  @RequestBody BranchDTO branchDTO) {
         BranchDTO updatedBranch = service.updateBranch(id, branchDTO);
         return new ResponseEntity<>(updatedBranch, HttpStatus.OK);
     }
