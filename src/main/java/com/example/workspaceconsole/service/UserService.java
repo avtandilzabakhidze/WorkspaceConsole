@@ -30,7 +30,7 @@ public class UserService {
     }
 
     public UserDTO saveUser(UserDTO userDTO){
-        User user = repository.save(modelMapper.map(userDTO, User.class));
+        User user = modelMapper.map(userDTO, User.class);
         return modelMapper.map(user, UserDTO.class);
     }
 
@@ -39,7 +39,7 @@ public class UserService {
             throw new EntityNotFoundException("User with id " + id + " not found");
         }
         userDTO.setId(id);
-        User user = repository.save(modelMapper.map(userDTO, User.class));
+        User user = modelMapper.map(userDTO, User.class);
         return modelMapper.map(user, UserDTO.class);
     }
 

@@ -42,11 +42,4 @@ public class WorkspaceService {
         Workspace workspace = repository.save(modelMapper.map(workspaceDTO, Workspace.class));
         return modelMapper.map(workspace, WorkspaceDTO.class);
     }
-
-    public void deleteWorkspaceById(long id){
-        if (!repository.existsById(id)) {
-            throw new EntityNotFoundException("Workspace with id " + id + " not found");
-        }
-        repository.deleteById(id);
-    }
 }

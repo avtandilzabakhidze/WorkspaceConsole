@@ -30,7 +30,7 @@ public class BranchService {
     }
 
     public BranchDTO saveBranch(BranchDTO branchDTO) {
-        Branch branch = repository.save(modelMapper.map(branchDTO, Branch.class));
+        Branch branch = modelMapper.map(branchDTO, Branch.class);
         return modelMapper.map(branch, BranchDTO.class);
     }
 
@@ -39,7 +39,7 @@ public class BranchService {
             throw new EntityNotFoundException("Branch with id " + id + " not found");
         }
         branchDTO.setId(id);
-        Branch branch = repository.save(modelMapper.map(branchDTO, Branch.class));
+        Branch branch = modelMapper.map(branchDTO, Branch.class);
         return modelMapper.map(branch, BranchDTO.class);
     }
 }

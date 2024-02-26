@@ -51,15 +51,4 @@ public class WorkspaceController {
         WorkspaceDTO updatedWorkspace = service.updateWorkspace(id, workspaceDTO);
         return new ResponseEntity<>(updatedWorkspace, HttpStatus.OK);
     }
-
-    @Operation(summary = "Delete a workspace by ID")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "204", description = "Workspace deleted"),
-            @ApiResponse(responseCode = "404", description = "Workspace not found"),
-    })
-    @DeleteMapping("{id}")
-    public ResponseEntity<Void> deleteUserById(@PathVariable long id) {
-        service.deleteWorkspaceById(id);
-        return ResponseEntity.noContent().build();
-    }
 }
