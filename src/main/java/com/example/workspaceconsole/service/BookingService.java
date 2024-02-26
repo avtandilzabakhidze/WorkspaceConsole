@@ -39,6 +39,5 @@ public class BookingService {
             throw new EntityNotFoundException("Booking with id " + id + " not found");
         }
         repository.deleteById(id);
-
     }
 }
