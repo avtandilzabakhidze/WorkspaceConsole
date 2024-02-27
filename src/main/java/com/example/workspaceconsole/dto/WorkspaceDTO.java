@@ -13,9 +13,6 @@ public class WorkspaceDTO {
     @Size(max = 100, message = "Workspace name must be less than or equal to 100 characters")
     private String workspaceName;
 
-    @NotNull(message = "Occupied status is required")
-    private boolean isOccupied;
-
     @PositiveOrZero(message = "Price must be a positive number or zero")
     private double price;
 

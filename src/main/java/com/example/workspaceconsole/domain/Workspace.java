@@ -17,11 +17,12 @@ public class Workspace {
     @GeneratedValue(generator = "workspace_id_gen", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name = "workspace_id_gen", sequenceName = "workspace_id_seq", allocationSize = 1)
     private long id;
+
     @Column(nullable = false)
     private String workspaceName;
 
-    @Column(nullable = false)
-    private boolean isOccupied;
+    @Transient
+    private boolean isOccupied = false;
 
     @Column(nullable = false)
     private double price;
