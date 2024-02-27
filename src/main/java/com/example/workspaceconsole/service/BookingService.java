@@ -10,6 +10,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -39,8 +40,10 @@ public class BookingService {
         Booking booking = modelMapper.map(bookingDTO, Booking.class);
         Workspace workspace = workspaceRepository.findById(bookingDTO.getWorkspaceId())
                 .orElseThrow(() -> new EntityNotFoundException("Workspace with id " + bookingDTO.getWorkspaceId() + " not found"));
-        booking.setWorkspace(workspace);
+        LocalDateTime endTime = booking.getStartTime().plusHours(workspace.getTimeManagement().getHoursInUnit());
         workspace.setOccupied(true);
+        booking.setWorkspace(workspace);
+        booking.setEndTime(endTime);
         workspaceRepository.save(workspace);
         booking = repository.save(booking);
         return modelMapper.map(booking, BookingDTO.class);

@@ -17,9 +17,6 @@ public class BookingDTO {
     @NotNull(message = "Start time is required")
     private LocalDateTime startTime;
 
-    @NotNull(message = "End time is required")
-    private LocalDateTime endTime;
-
     @Positive(message = "User ID must be positive")
     private long userId;
 
