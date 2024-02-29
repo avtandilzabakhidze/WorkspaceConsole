@@ -29,7 +29,7 @@ public class Workspace {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private TimeManagement timeManagement;
+    private TimeManagement timeManagement = TimeManagement.HOUR;
     private String description;
 
     @Column(nullable = false)
