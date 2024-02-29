@@ -10,6 +10,11 @@ The Workspace Booking Console Application is a Java Spring Boot application desi
 - **User Management:** Keep track of user information, including personal details and contact information, for smooth communication and engagement.
 - **Time Management:** Flexible booking durations are supported, including options for hourly, daily, monthly, and yearly bookings.
 
+### Integration Testing
+
+- **Spring Boot Test:** Integration tests are conducted using Spring Boot's testing framework to ensure the interaction between different modules within the application is seamless.
+- **Embedded PostgreSQL:** Embedded PostgreSQL is utilized for integration tests to simulate database interactions without relying on an external database instance.
+
 ## Technologies Used
 
 - **Java**
