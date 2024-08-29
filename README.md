@@ -1,6 +1,6 @@
 # Workspace Booking Console Application
 
-The Workspace Booking Console Application is a Java Spring Boot application designed to facilitate workspace bookings. Users can easily view available workspaces, make bookings, cancel bookings, and manage their reservations seamlessly.
+The Workspace Booking Console Application is a Java Spring Boot application designed to facilitate workspace bookings. Users can easily view available workspaces, make bookings, cancel bookings and manage their reservations seamlessly.
 
 ## Features
 
